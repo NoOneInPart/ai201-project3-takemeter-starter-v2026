@@ -54,33 +54,42 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `analysis`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** Makes an argument backed by a specific, load-bearing checkable fact (like a race split, date, mileage number, or direct comparison).
 
 **Example 1:**
->
+> *"Looked at my last three build-ups. The one where I capped long runs at 2 hours had my best race by 4 minutes, despite the lowest weekly mileage of the three. Time on feet past 2 hours was costing me the next four days."*
 
 **Example 2:**
->
+> *"My Garmin insisted my training was 'Unproductive' for 6 weeks straight. Yet my 10k time trial dropped from 44:10 in October to 42:30 in December on identical weekly volume of 45 miles. The algorithm is penalizing high-heat runs, not actual fitness."*
+
+### `hot_take`
+
+**Definition:** A confident, subjective claim asserted without supporting data or reasoned argument.
+
+**Example 1:**
+> *"Super shoes have ruined amateur racing. Times mean nothing now and everyone knows it."*
+
+**Example 2:**
+> *"Wearing a hydration vest for a 5k parkrun should result in an immediate 6-month ban from running stores."*
+
+### `reaction`
+
+**Definition:** An immediate, emotional or sensory response to a recent event, focused on the writer's personal experience rather than an argument.
+
+**Example 1:**
+> *"Just got back from the long run and I cannot feel my hands. Worth it though."*
+
+**Example 2:**
+> *"Just got smoked by an 80-year-old grandfather wearing sandals and khaki shorts. Deleting Strava now."*
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `analysis` vs. `hot_take`
 
 **The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
+Does the checkable fact actually carry the argument? If a number or stat is just tossed in as decorative flair on a conclusion the runner already arrived at (e.g. *"Super shoes ruined everything, times are down 3%"*), it is still a `hot_take`. It only counts as `analysis` when the specific data point does the heavy lifting to prove the claim.
 
 
 

@@ -51,61 +51,49 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1. Overall Accuracy on Unseen Posts
 
-<!-- Your criterion. It must name a number. -->
-
-
+The classifier correctly predicts the label for at least **72%** (at least 22 out of 30) of newly tested posts across multiple test runs.
 
 **Why this target:**
-
-
+Since there are three categories, a coin-toss or random guess gets only about 33%. Setting the bar at 72% means the model must get nearly three out of four posts right to be considered practically useful for sorting forum threads, which leaves little margin for error on a small test batch.
 
 ---
 
-## 2.
+## 2. Minimum Performance for Each Category
 
-<!-- Your criterion. -->
-
-
+The model correctly identifies at least **65%** of posts in each individual category (`analysis`, `hot_take`, and `reaction`), so no category falls behind.
 
 **Why this target:**
-
-
+`analysis` and `hot_take` are easily confused when runners throw in casual numbers or times as emotional decoration. Requiring every category to stay above 65% prevents the model from ignoring tricky hot takes just to boost its total score, though keeping that high on our smallest slices of test data will be tough to achieve consistently.
 
 ---
 
-## 3.
+## 3. Dataset Balance
 
-<!-- Your criterion. -->
-
-
+No single category makes up more than **40%** of our total 200 posts (keeping each label between 60 and 80 examples).
 
 **Why this target:**
-
-
+If one category dominated (like 60% or 70%), the classifier could get a high score simply by guessing the common label over and over. Enforcing a strict 40% ceiling ensures the training data remains evenly split across all three post types.
 
 ---
 
-## 4.
+## 4. Clear Improvement Over the Baseline
 
-<!-- Your criterion. -->
-
-
+The trained classifier beats the un-fine-tuned baseline by at least **15 percentage points** in overall accuracy.
 
 **Why this target:**
-
-
+Without fine-tuning, a general AI model only guesses from our three written definitions. Because running communities use heavy inside slang ("Zone 2", "super shoes", "Pfitz"), spending the effort to train on 200 custom examples is only worth it if the model shows a substantial 15% jump in real-world performance over just reading the raw definitions.
 
 ---
 
-## 5.
+## 5. Reliability on High-Certainty Predictions
 
-<!-- Your criterion. -->
-
-
+When the classifier is highly confident in its answer (at or above **85% certainty**), it must be correct at least **90%** of the time.
 
 **Why this target:**
+If this tool were used to automatically flag or organize posts on a forum, users and moderators need to know that when the system says it is sure, it is almost never wrong. Demanding 90% accuracy on high-confidence calls tests whether the model's confidence reflects genuine accuracy rather than overconfident guesses.
+
 
 
 

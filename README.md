@@ -42,8 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-
-
+TakeMeter analyzes posts and comments from an online distance running forum (reminiscent of communities like r/running and r/RunningCirclejerk). It classifies forum posts into three functional categories: `analysis` (arguments backed by load-bearing checkable facts), `hot_take` (confident assertions made without supporting evidence), and `reaction` (immediate, emotional or sensory responses to recent training and races). By distinguishing structured training insight from hot takes and post-run venting, the classifier helps readers and moderators quickly surface substantive running discussions.
 ---
 
 ## Label Taxonomy
@@ -151,17 +150,18 @@ The dataset consists of 200 posts from an online distance running forum:
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate 2e-5, batch size 16, seed 42, max sequence length 128.
 
 **Anything I changed from the defaults, and why:**
+Kept the starter defaults as they provided solid convergence on the 200-item dataset and ran comfortably within memory limits on CPU.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
-
-
+**Split sizes:**
+Stratified 70/15/15 split:
+- **Train:** 140 posts (~47 per label)
+- **Validation:** 30 posts (10 per label)
+- **Test:** 30 posts (10 per label: 10 `analysis`, 10 `hot_take`, 10 `reaction`). No label had fewer than 8 examples in test.
 
 ---
 
@@ -176,17 +176,19 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked AI to generate 140 additional distance running forum comments with high variability—specifically requesting Reddit running tropes, humor, and memes (such as Garmin recovery roasts, Zone 2 jokes, and super shoes)—pre-labelled into `analysis`, `hot_take`, and `reaction` to reach the required 200-post dataset size.
+- *What came back:* 140 synthetic forum comments pre-assigned to the three classes, balanced roughly equally (47 `analysis`, 47 `hot_take`, 46 `reaction`).
+- *What I changed:* I reviewed and verified the generated posts and their proposed labels against the taxonomy decision rules (confirming that `analysis` numbers were load-bearing rather than decorative), and explicitly tagged ambiguous edge cases in the CSV's `note` column.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked for suggestions to formulate my 5 acceptance criteria in `criteria.md` with measurable numbers and defensible rationales.
+- *What came back:* An initial draft specifying technical evaluation metrics (e.g., Macro F1, per-label F1 floors) and referencing internal starter scripts (`python agreement.py`).
+- *What I changed:* I revised the criteria to be described in plain, intuitive terms from the perspective of an end-user or moderator evaluating practical classifier reliability, replacing technical jargon like F1 and specific script names with accessible concepts (e.g., per-category accuracy, dataset balance limits, reviewer agreement, and baseline improvement).
 
 **Pre-labelling disclosure:**
+Of the 200 posts in `labels.csv`, 60 posts came pre-labelled from the starter dataset (`provided practice data`). The remaining 140 posts were generated and pre-labelled by Gemini 3.8 Flash (`synthetic, reviewed`), followed by manual review, validation against the taxonomy definitions, and hard-case annotation in the `note` column.
+
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 

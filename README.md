@@ -101,18 +101,22 @@ Does the checkable fact actually carry the argument? If a number or stat is just
      cases. -->
 
 **Where the posts came from:**
+The dataset consists of 200 posts from an online distance running forum:
+- 60 starter posts from the provided sample dataset (`data/practice_labels.csv`).
+- 140 synthetic posts generated using Gemini 3.8 Flash, specifically emulating running discussion boards and Reddit communities (e.g., r/running, r/RunningCirclejerk). Generating these posts kept the project moving forward, as sourcing raw comments from live forums repeatedly turned into an exercise in getting distracted reading and interacting with the threads.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:**
+- The initial 60 posts retained the provided starter labels (`provided practice data`).
+- The 140 generated posts were pre-labelled by Gemini 3.8 Flash according to the taxonomy constraints, and subsequently reviewed and verified against the decision rules. Borderline examples were specifically tagged in the CSV's `note` column.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `analysis` | 67 | 33.5% |
+| `hot_take` | 67 | 33.5% |
+| `reaction` | 66 | 33.0% |
+| **Total** | 200 | 100% |
 
 **Three hard cases**
 
@@ -120,25 +124,26 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* "The women's field here has grown 60% in five years while the men's is flat. That's the actual story of this race and nobody writes about it."
 >
-> *Could have been:*
+> *Could have been:* `hot_take`
 >
-> *I chose, because:*
+> *I chose, because:* `analysis`. The cynical, editorializing tone ("nobody writes about it") sounds like a hot take, but the specific, checkable 60% vs. flat comparison is load-bearing and carries the argument.
 
 **2.**
-> *The post:*
+> *The post:* "Nobody needs a gel before 90 minutes. The whole fuelling industry is built on people panicking."
 >
-> *Could have been:*
+> *Could have been:* `analysis`
 >
-> *I chose, because:*
+> *I chose, because:* `hot_take`. Citing "90 minutes" gives the appearance of a checkable physiological threshold, but zero supporting data or physiological reasoning is provided—it remains an unargued, confident claim.
 
 **3.**
-> *The post:*
+> *The post:* "Missed my goal by eleven seconds. Eleven. I'm going to be thinking about that for a month."
 >
-> *Could have been:*
+> *Could have been:* `analysis`
 >
-> *I chose, because:*
+> *I chose, because:* `reaction`. Even though "eleven seconds" is a concrete, checkable metric, it is not functioning as evidence in an argument. It is strictly an expression of immediate personal heartbreak following a race.
+
 
 ---
 

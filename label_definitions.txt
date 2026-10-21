@@ -5,6 +5,6 @@
 #
 # Delete the examples below and put yours in.
 
-analysis: makes an argument backed by a specific, checkable fact
-hot_take: a confident claim with no support offered
-reaction: an immediate response to something that just happened
+analysis: makes an argument backed by a specific, load-bearing checkable fact (like a race split, date, mileage number, or direct comparison)
+hot_take: a confident, subjective claim asserted without supporting data or reasoned argument
+reaction: an immediate, emotional or sensory response to a recent event, focused on the writer's personal experience rather than an argument

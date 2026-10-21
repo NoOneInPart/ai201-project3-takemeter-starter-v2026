@@ -1,0 +1,184 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": false,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.6666666666666666,
+    "f1_macro": 0.6757164404223227,
+    "per_label": {
+      "analysis": {
+        "precision": 1.0,
+        "recall": 0.7,
+        "f1": 0.8235294117647058,
+        "support": 10
+      },
+      "hot_take": {
+        "precision": 0.5,
+        "recall": 0.8,
+        "f1": 0.6153846153846154,
+        "support": 10
+      },
+      "reaction": {
+        "precision": 0.7142857142857143,
+        "recall": 0.5,
+        "f1": 0.588235294117647,
+        "support": 10
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "Compared treadmill calorie counters against a laboratory metabolic cart: the treadmill display overestimated caloric expenditure by 22% because it ignored zero wind resistance and deck bounce.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Just watched someone in a full costume run past me at mile 20 and I've never felt worse about myself.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Just swallowed a fly on that sprint interval and I think it was my only source of protein today.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Split the field by finish time and looked at DNF rates. Under 3:30, about 1%. Over 5 hours, about 9%. The cutoff is at 6 hours and the aid stations start closing at 5:15, which might explain more of that than fitness does.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Checked wind resistance data on drafting in running: running directly behind another runner at 6:00/mile pace in a 12 mph headwind reduced oxygen consumption by 6.5%.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "People who run with their dog off-leash on crowded multi-use paths should be banned from public parks.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Absolutely buried myself on that tempo and I regret nothing.",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Running with two watches is peak clown behavior and should be mocked openly.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Looked at the elevation gain on Strava segments vs official race topographic maps for the hill climb: Strava barometric altimeters undercounted total gain by 85 meters because of wooded switchback interpolation.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "If your warmup routine takes longer than 15 minutes, you're not an athlete, you're an influencer.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Stood in the freezing porta-potty line for 35 minutes, gave up, and the starting gun went off. Peak chaos.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "The women's field here has grown 60% in five years while the men's is flat. That's the actual story of this race and nobody writes about it.",
+      "gold": "analysis",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Just got back from the long run and I cannot feel my hands. Worth it though.",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "First time under 20 for the 5k and I nearly cried at the finish line. Four years I've been chasing that.",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Missed my goal by eleven seconds. Eleven. I'm going to be thinking about that for a month.",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Every marathon race recap longer than 500 words is a thinly veiled cry for psychiatric evaluation.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "The 5k is the only honest distance. Everything longer is a logistics competition.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Negative splitting is a myth that people repeat because it sounds disciplined.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Runners who leave their race bibs pinned to their jacket three days after the race are certified narcissists.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Compared pre-race carb loading protocols: 10g carbs/kg body weight for 36 hours increased muscle glycogen by 38% and delayed bonking past mile 23 compared to standard eating habits.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Tracked morning HRV for 6 months: any day where HRV dropped more than 1.5 standard deviations below 7-day baseline resulted in a 4x higher risk of failing interval pace targets.",
+      "gold": "analysis",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Morning coffee before a race is 100% biological roulette with zero safety margins.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "My GPS watch beeped 'Goal Achieved' while I was sitting on the toilet. We take those wins.",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Bought a treadmill in January and my outdoor pace got worse by about 10 seconds a mile through February. Same heart rate, same effort. I think the treadmill was flattering me on effort and I'd stopped running hills entirely.",
+      "gold": "analysis",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Looked at 42 Parkrun events over the winter: runners wearing trail treads averaged 24:15 on the muddy dog-leg turn vs 25:35 for road shoes. 80 seconds purely from traction on a 90-degree wet grass corner.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Track workouts are for people who like feeling fast more than getting fast.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "My toenail just fell off into my sock. Running is disgusting and I love it.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Two weeks out and I've picked up a cold. Timing could not be worse.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Heart rate monitors do nothing but give hypochondriacs a fancy graph to panic over.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Tested the Maurten hype on two 20-milers at 7:45 pace. 60g carbs/hr from maple syrup and salt tablets cost $1.20 and yielded identical average HR (154 bpm) and split drop-off (-12s) compared to $14 worth of Maurten gels. You're paying for packaging.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    }
+  ]
+}

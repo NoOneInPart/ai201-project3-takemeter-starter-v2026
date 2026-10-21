@@ -204,20 +204,36 @@ Of the 200 posts in `labels.csv`, 60 posts came pre-labelled from the starter da
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.800 | 0.933 | +0.133 |
+| Macro F1 | 0.800 | 0.931 | +0.131 |
+| F1 — `analysis` | 0.800 | 0.889 | +0.089 |
+| F1 — `hot_take` | 0.778 | 0.952 | +0.175 |
+| F1 — `reaction` | 0.824 | 0.952 | +0.129 |
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+I'm predicting that the trained model might do better at hot takes as even to
+a person unfamiliar with sarcasm, they might take such comments seriously.
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
+The training actually did help improve the F1 scores for hot_take, increasing
+it by 0.175, as well as improving the analysis and reaction scores by 0.089
+and 0.129 respectively. As predicted, training allowed the model to more 
+accurately detect the nuances of hot takes, such as the use of sarcasm.
 
-
+**Test with bare label names:**
+| Measure | Baseline | Trained | Difference |
+|---|---|---|---|
+| Overall accuracy | 0.667 | 0.933 | +0.267 |
+| Macro F1 | 0.676 | 0.931 | +0.256 |
+| F1 — `analysis` | 0.824 | 0.889 | +0.065 |
+| F1 — `hot_take` | 0.615 | 0.952 | +0.337 |
+| F1 — `reaction` | 0.588 | 0.952 | +0.364 |
+These results show that having label definitions can help improve baseline 
+model accuracy, but not to the extent that combining it with training does.
 
 ---
 

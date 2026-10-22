@@ -242,29 +242,42 @@ model accuracy, but not to the extent that combining it with training does.
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
 
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-|---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.933 | 1.000 | 0.933 | 0.067 |
+| Macro F1 | 0.931 | 1.000 | 0.931 | 0.069 |
+| F1 — `analysis` | 0.889 | 1.000 | 0.889 | 0.111 |
+| F1 — `hot_take` | 0.952 | 1.000 | 0.952 | 0.048 |
+| F1 — `reaction` | 0.952 | 1.000 | 0.952 | 0.048 |
+
+Accuracy moved 0.067 across seeds. Enough that a criterion landing within that band can't really be called either way.
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
+| true \ predicted | analysis | hot_take | reaction |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **analysis** | 8 | 1 | 1 |
+| **hot_take** | 0 | 10 | 0 |
+| **reaction** | 0 | 0 | 10 |
+
+Biggest confusion: 1 real `analysis` posts called `hot_take`.
+The other direction: 0 real `hot_take` posts called `analysis`.
+
+Roughly symmetric — the model finds this pair hard in both directions,
+which more often means the boundary itself is genuinely hard.
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
+The biggest off-diagonal number is 1, where 1 analysis post was mispredicted as
+a hot take and another was mispredicted as a reaction. This seems to show that 
+the model has good accuracy for hot takes and reactions, but analysis posts 
+worded a certain way, possibly more passionate or narrative in tone, may trip 
+the model into categorizing them incorrectly.
 
 
 

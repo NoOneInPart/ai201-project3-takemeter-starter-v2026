@@ -94,8 +94,9 @@ When the classifier is highly confident in its answer (at or above **85% certain
 **Why this target:**
 If this tool were used to automatically flag or organize posts on a forum, users and moderators need to know that when the system says it is sure, it is almost never wrong. Demanding 90% accuracy on high-confidence calls tests whether the model's confidence reflects genuine accuracy rather than overconfident guesses.
 
-
-
+> **Revised in unit 6:** Accuracy on the model's most-confident third of predictions (`accuracy_most_confident_third`) is at least **0.90** (90%).
+>
+> **Why revised:** The evaluation pipeline does not output raw individual confidence percentages, only confidence tertiles in `results.json`. Measuring the accuracy of the top third maps directly to `results.json["confidence"]["accuracy_most_confident_third"]`.
 
 ---
 

@@ -328,39 +328,33 @@ The exercise confirms that written rules with explicit tie-breakers prevent subj
 ## The Improvement
 
 **What I changed:**
+Increased training epochs from `EPOCHS = 3` to `EPOCHS = 5` in `takemeter.ipynb` (keeping learning rate 2e-5 and batch size 16).
 
 **Which diagnosis pointed at it:**
+The Criterion 4 diagnosis noted that with 140 training examples and batch size 16, 3 epochs only gave the model 27 gradient steps—leaving DistilBERT vulnerable to over-indexing on narrative emotion over embedded checkable metrics. Bumping to 5 epochs gave the model 45 update steps to refine its attention weights on numerical comparisons without falling into severe overfitting.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.72 | 0.933 | 1.000 | 0.967 | **MET** |
+| 2. Category performance floor | ≥ 0.65 | 0.800 (F1 0.889) | 1.000 | 0.900 (F1 0.947) | **MET** |
+| 3. Dataset balance | ≤ 40% per class | 33.5% | 33.5% | 33.0% | **MET** |
+| 4. Improvement over baseline | ≥ +0.150 over 0.800 | +0.133 | +0.200 | +0.167 | **MISSED** |
+| 5. High-confidence accuracy | ≥ 0.90 | 1.000 | 1.000 | 1.000 | **MET** |
 
 **Did it help, and how do I know:**
-
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
-
-
+Yes. On Seed 2024, overall accuracy improved from 0.933 to 0.967 (29/30), Macro F1 rose from 0.931 to 0.967, and `analysis` F1 jumped from 0.889 to 0.947 by eliminating the misclassification of `analysis` into `reaction`. Criterion 4 is now met on two of the three seeds (Seeds 7 and 2024). Furthermore, mean prediction confidence when right increased substantially across all seeds (from ~0.47 to ~0.65). However, Seed 42 remained at 0.933 (missing the target by a single post), so across all three seeds Criterion 4 remains technically missed.
 
 ---
 
 ## What's Still Broken
 
-<!-- For each criterion still missed: what you'd do, and why you stopped. -->
+**For each criterion still missed: what you'd do, and why you stopped:**
+- **Criterion 4 (+15% improvement over baseline across all seeds):** On Seed 42, the model scores 0.933 (+13.3%), falling 1 post short of the 0.950 (+15.0%) threshold. To close this final gap, I would collect 20–30 more training examples specifically targeting conversational `analysis` (posts that use emotional or first-person storytelling around hard stats). I stopped here because the model already achieves 93.3%–100% accuracy, and demanding a strict +15% delta over a strong 80% baseline across every seed pushes against the high-variance limits of a 30-item test set (where a single post equals a 3.3% swing).
 
-
-
-**The gap between what I meant my labels to capture and what the model
-learned:**
-<!-- Two sentences. Your confusion matrix is the evidence. -->
-
-
+**The gap between what I meant my labels to capture and what the model learned:**
+The taxonomy treats any post where a checkable metric carries the argument as `analysis`, even when written in a lively, frustrated, or conversational tone. The model learned the core features well, but still occasionally mistakes conversational emotion for a `hot_take` when strong opinion words overshadow the numbers.
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
